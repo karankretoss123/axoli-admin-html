@@ -55,15 +55,15 @@
                                     <g id="编组" transform="translate(325.000000, 80.000000)">
                                         <polygon fill="#FFFFFF" fill-opacity="0.01" fill-rule="nonzero" id="路径"
                                             points="24 0 0 0 0 24 24 24" />
-                                        <polygon id="路径" points="22 7 12 2 2 7 2 17 12 22 22 17" stroke="#212121"
+                                        <polygon id="路径" points="22 7 12 2 2 7 2 17 12 22 22 17" stroke="currentColor"
                                             stroke-linejoin="round" stroke-width="1.5" />
-                                        <line id="路径" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"
+                                        <line id="路径" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="1.5" x1="2" x2="12" y1="7" y2="12" />
-                                        <line id="路径" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"
+                                        <line id="路径" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="1.5" x1="12" x2="12" y1="22" y2="12" />
-                                        <line id="路径" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"
+                                        <line id="路径" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="1.5" x1="22" x2="12" y1="7" y2="12" />
-                                        <line id="路径" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"
+                                        <line id="路径" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="1.5" x1="17" x2="7" y1="4.5" y2="9.5" />
                                     </g>
                                 </g>
@@ -83,13 +83,13 @@
                         </svg></span>
                     <span class="text">Manage CMS</span>
                 </li>
-                <li onclick="openPage('inquiry')">
-                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="20px" height="20px"
+                <li onclick="openPage('sample')">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20px" height="20px"
                             viewBox="0 0 24 24">
                             <path
                                 d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z" />
                         </svg></span>
-                    <span class="text">Inquiry</span>
+                    <span class="text">Sample</span>
                 </li>
                 <li onclick="openPage('quotation')">
                     <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -233,13 +233,13 @@
 
                     <div class="chart-grid">
                         <div class="chart-box">
-                        <h4>This Month Inquiries</h4>
-                        <canvas id="inquiryChartSmall"></canvas>
+                            <h4>This Month Inquiries</h4>
+                            <canvas id="sampleChartSmall"></canvas>
                         </div>
 
                         <div class="chart-box">
-                        <h4>User Registrations</h4>
-                        <canvas id="userChartSmall"></canvas>
+                            <h4>User Registrations</h4>
+                            <canvas id="userChartSmall"></canvas>
                         </div>
                     </div>
                 </div>
@@ -249,45 +249,111 @@
 
             <!-- OTHER PAGES -->
             <div id="category" class="page">
-            <div class="page-header">
-                <div>
-                <h2>Manage Category</h2>
-                <p>Dashboard › Manage Category</p>
+                <div class="page-header">
+                    <div>
+                        <h2>Manage Category</h2>
+                        <p>Dashboard › Manage Category</p>
+                    </div>
+                    <button class="btn-primary" onclick="openAddCategory()">Add New</button>
                 </div>
-                <button class="btn-primary" onclick="openAddCategory()">Add New</button>
-            </div>
 
-            <div class="table-card">
-                <table class="data-table" id="categoryTable">
-                <thead>
-                    <tr>
-                    <th>ID</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Total Products</th>
-                    <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Rows added by JS -->
-                </tbody>
-                </table>
-            </div>
+                <div class="table-card">
+                    <table class="data-table" id="categoryTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Total Products</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows added by JS -->
+                        </tbody>
+                    </table>
+                    <div class="pagination" id="categoryPagination"></div>
+                </div>
 
             </div>
 
             <div id="product" class="page">
-                <h2>Manage Product</h2>
+                <div class="page-header">
+                    <div>
+                        <h2>Manage Product</h2>
+                        <p>Dashboard › Manage Product</p>
+                    </div>
+                    <button class="btn-primary" onclick="openAddProduct()">Add New</button>
+                </div>
+
+                <div class="table-card">
+                    <table class="data-table" id="productTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Primary</th>
+                                <th>Secondary</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Size</th>
+                                <th>Finish</th>
+                                <th>Digital</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="pagination" id="productPagination"></div>
+                </div>
             </div>
+
             <div id="cms" class="page">
                 <h2>Manage CMS</h2>
             </div>
-            <div id="inquiry" class="page">
-                <h2>Manage Inquiry</h2>
+            <div id="sample" class="page">
+                <div class="page-header">
+               <h2>Manage Sample</h2>
+                </div>
+                <div class="table-card">
+                <table id="sampleTable" class="data-table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Sample</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="pagination" id="samplePagination"></div>
+                </div>
+
             </div>
             <div id="quotation" class="page">
-                <h2>Manage Quotation</h2>
+                <div class="page-header">
+                    <h2>Manage Quotations</h2>
+                </div>
+                <div class="table-card">
+                <table id="quotationTable" class="data-table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="pagination" id="samplePagination"></div>
+                </div>
+                
             </div>
+            
             <div id="setting" class="page">
                 <h2>Settings</h2>
             </div>
@@ -296,28 +362,72 @@
     </div>
 
 
-        <div class="modal" id="categoryModal">
+    <div class="modal" id="categoryModal">
         <div class="modal-box">
             <div class="modal-header">
-            <h3 id="modalTitle">Add New Category</h3>
-            <button onclick="closeCategoryModal()">✕</button>
+                <h3 id="modalTitle">Add New Category</h3>
+                <button onclick="closeCategoryModal()">✕</button>
             </div>
 
             <form id="categoryForm">
-            <input type="hidden" id="editIndex">
+                <input type="hidden" id="editIndex">
 
-            <label>Category Name *</label>
-            <input type="text" id="categoryName" required>
+                <label>Category Name *</label>
+                <input type="text" id="categoryName" required>
 
-            <label>Category Image *</label>
-            <input type="file" id="categoryImage" accept="image/*">
+                <label>Category Image *</label>
+                <input type="file" id="categoryImage" accept="image/*">
 
-            <div class="modal-actions">
-                <button type="submit" class="btn-primary">Submit</button>
-            </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">Submit</button>
+                </div>
             </form>
         </div>
+    </div>
+
+
+    <div class="modal" id="productModal">
+        <div class="modal-box large">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Add Product</h3>
+                <button onclick="closeProductModal()">✕</button>
+            </div>
+
+            <form id="productForm">
+                <input type="hidden" id="productEditIndex">
+
+                <label>Product Name *</label>
+                <input type="text" id="productName" required>
+
+                <label>Primary Image / Video *</label>
+                <input type="file" id="productPrimary" accept="image/*,video/*">
+
+                <label>Secondary Images</label>
+                <input type="file" id="productSecondary" multiple accept="image/*">
+
+                <label>Category *</label>
+                <select id="productCategory" required></select>
+
+                <label>Size</label>
+                <input type="text" id="productSize" placeholder="600x600mm">
+
+                <label>Finish</label>
+                <input type="text" id="productFinish" placeholder="Glossy / Matte">
+
+                <label>Digital</label>
+                <input type="text" id="productDigital" placeholder="Wall Tiles">
+
+
+                <label>Description</label>
+                <textarea id="productDescription"></textarea>
+
+                <div class="modal-actions">
+                    <button class="btn-primary" type="submit">Submit</button>
+                </div>
+            </form>
         </div>
+    </div>
+
 
 
 
