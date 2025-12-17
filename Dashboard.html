@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Axoli Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/custom.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-text">Axoli</div>
+                <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+                <button class="sidebar-open" onclick="toggleSidebar()">☰</button>
+            </div>
+
+
+            <ul class="menu">
+                <li class="active" onclick="openPage('dashboard')">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard">
+                            <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                            <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                            <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                            <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                        </svg></span>
+                    <span class="text">Dashboard</span>
+                </li>
+                <li onclick="openPage('category')">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers">
+                            <path
+                                d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z">
+                            </path>
+                            <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path>
+                            <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path>
+                        </svg></span>
+                    <span class="text">Manage Category</span>
+                </li>
+                <li onclick="openPage('product')">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 24 24"
+                            version="1.1">
+                            <title />
+                            <g fill="none" fill-rule="evenodd" id="页面-1" stroke="none" stroke-width="1">
+                                <g id="导航图标" transform="translate(-325.000000, -80.000000)">
+                                    <g id="编组" transform="translate(325.000000, 80.000000)">
+                                        <polygon fill="#FFFFFF" fill-opacity="0.01" fill-rule="nonzero" id="路径"
+                                            points="24 0 0 0 0 24 24 24" />
+                                        <polygon id="路径" points="22 7 12 2 2 7 2 17 12 22 22 17" stroke="#212121"
+                                            stroke-linejoin="round" stroke-width="1.5" />
+                                        <line id="路径" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" x1="2" x2="12" y1="7" y2="12" />
+                                        <line id="路径" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" x1="12" x2="12" y1="22" y2="12" />
+                                        <line id="路径" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" x1="22" x2="12" y1="7" y2="12" />
+                                        <line id="路径" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" x1="17" x2="7" y1="4.5" y2="9.5" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg></span>
+                    <span class="text">Manage Product</span>
+                </li>
+                <li onclick="openPage('cms')">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text">
+                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                            <path d="M10 9H8"></path>
+                            <path d="M16 13H8"></path>
+                            <path d="M16 17H8"></path>
+                        </svg></span>
+                    <span class="text">Manage CMS</span>
+                </li>
+                <li onclick="openPage('inquiry')">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="20px" height="20px"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z" />
+                        </svg></span>
+                    <span class="text">Inquiry</span>
+                </li>
+                <li onclick="openPage('quotation')">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg></span>
+                    <span class="text">Quotation</span>
+                </li>
+                <li onclick="openPage('setting')">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings">
+                            <path
+                                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+                            </path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg></span>
+                    <span class="text">Setting</span>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="logout" onclick="handleLogout()">
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                            <polyline points="16 17 21 12 16 7" />
+                            <line x1="21" x2="9" y1="12" y2="12" />
+                        </svg>
+                    </span>
+                    <span class="text">Logout</span>
+                </div>
+            </div>
+
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- DASHBOARD -->
+            <div id="dashboard" class="page active">
+                <div class="header">
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p>Welcome back to Axoli Admin Panel</p>
+                    </div>
+                    <div class="user">
+                        <div class="user-info">
+                            <span>Admin User</span>
+                            <small>admin@axoli.com</small>
+                        </div>
+                        <div class="avatar">A</div>
+                    </div>
+
+                </div>
+
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Total Category</h3>
+                            <div class="card-icon orange">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-layers">
+                                    <path
+                                        d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z">
+                                    </path>
+                                    <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path>
+                                    <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h2>48</h2>
+                        <span>+12% from last month</span>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Total Products</h3>
+                            <div class="card-icon dark">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
+                                    <title />
+                                    <g fill="none" fill-rule="evenodd" id="页面-1" stroke="none" stroke-width="1">
+                                        <g id="导航图标" transform="translate(-325.000000, -80.000000)">
+                                            <g id="编组" transform="translate(325.000000, 80.000000)">
+                                                <polygon fill="#FFFFFF" fill-opacity="0.01" fill-rule="nonzero" id="路径"
+                                                    points="24 0 0 0 0 24 24 24" />
+                                                <polygon id="路径" points="22 7 12 2 2 7 2 17 12 22 22 17" stroke="#FFF"
+                                                    stroke-linejoin="round" stroke-width="1.5" />
+                                                <line id="路径" stroke="#FFF" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="1.5" x1="2" x2="12" y1="7"
+                                                    y2="12" />
+                                                <line id="路径" stroke="#FFF" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="1.5" x1="12" x2="12" y1="22"
+                                                    y2="12" />
+                                                <line id="路径" stroke="#FFF" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="1.5" x1="22" x2="12" y1="7"
+                                                    y2="12" />
+                                                <line id="路径" stroke="#FFF" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="1.5" x1="17" x2="7" y1="4.5"
+                                                    y2="9.5" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <h2>1,234</h2>
+                        <span>+8% from last month</span>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Total Users</h3>
+                            <div class="card-icon beige">
+                                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M14 19.2857L15.8 21L20 17M4 21C4 17.134 7.13401 14 11 14C12.4872 14 13.8662 14.4638 15 15.2547M15 7C15 9.20914 13.2091 11 11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7Z"
+                                            stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <h2>856</h2>
+                        <span>+24% from last month</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Analytics Overview</h2>
+
+                    <div class="chart-grid">
+                        <div class="chart-box">
+                        <h4>This Month Inquiries</h4>
+                        <canvas id="inquiryChartSmall"></canvas>
+                        </div>
+
+                        <div class="chart-box">
+                        <h4>User Registrations</h4>
+                        <canvas id="userChartSmall"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- OTHER PAGES -->
+            <div id="category" class="page">
+            <div class="page-header">
+                <div>
+                <h2>Manage Category</h2>
+                <p>Dashboard › Manage Category</p>
+                </div>
+                <button class="btn-primary" onclick="openAddCategory()">Add New</button>
+            </div>
+
+            <div class="table-card">
+                <table class="data-table" id="categoryTable">
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Total Products</th>
+                    <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows added by JS -->
+                </tbody>
+                </table>
+            </div>
+
+            </div>
+
+            <div id="product" class="page">
+                <h2>Manage Product</h2>
+            </div>
+            <div id="cms" class="page">
+                <h2>Manage CMS</h2>
+            </div>
+            <div id="inquiry" class="page">
+                <h2>Manage Inquiry</h2>
+            </div>
+            <div id="quotation" class="page">
+                <h2>Manage Quotation</h2>
+            </div>
+            <div id="setting" class="page">
+                <h2>Settings</h2>
+            </div>
+
+        </main>
+    </div>
+
+
+        <div class="modal" id="categoryModal">
+        <div class="modal-box">
+            <div class="modal-header">
+            <h3 id="modalTitle">Add New Category</h3>
+            <button onclick="closeCategoryModal()">✕</button>
+            </div>
+
+            <form id="categoryForm">
+            <input type="hidden" id="editIndex">
+
+            <label>Category Name *</label>
+            <input type="text" id="categoryName" required>
+
+            <label>Category Image *</label>
+            <input type="file" id="categoryImage" accept="image/*">
+
+            <div class="modal-actions">
+                <button type="submit" class="btn-primary">Submit</button>
+            </div>
+            </form>
+        </div>
+        </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/custom.js"></script>
+
+
+</body>
+
+</html>
