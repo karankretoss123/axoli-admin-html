@@ -6,6 +6,8 @@
     <title>Axoli Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jodit@3.24.9/build/jodit.min.css">
+
 </head>
 
 <body>
@@ -57,14 +59,16 @@
                                             points="24 0 0 0 0 24 24 24" />
                                         <polygon id="路径" points="22 7 12 2 2 7 2 17 12 22 22 17" stroke="currentColor"
                                             stroke-linejoin="round" stroke-width="1.5" />
-                                        <line id="路径" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="1.5" x1="2" x2="12" y1="7" y2="12" />
-                                        <line id="路径" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="1.5" x1="12" x2="12" y1="22" y2="12" />
-                                        <line id="路径" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="1.5" x1="22" x2="12" y1="7" y2="12" />
-                                        <line id="路径" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="1.5" x1="17" x2="7" y1="4.5" y2="9.5" />
+                                        <line id="路径" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" x1="2" x2="12" y1="7" y2="12" />
+                                        <line id="路径" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" x1="12" x2="12" y1="22"
+                                            y2="12" />
+                                        <line id="路径" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" x1="22" x2="12" y1="7" y2="12" />
+                                        <line id="路径" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="1.5" x1="17" x2="7" y1="4.5"
+                                            y2="9.5" />
                                     </g>
                                 </g>
                             </g>
@@ -84,8 +88,8 @@
                     <span class="text">Manage CMS</span>
                 </li>
                 <li onclick="openPage('sample')">
-                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20px" height="20px"
-                            viewBox="0 0 24 24">
+                    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20px"
+                            height="20px" viewBox="0 0 24 24">
                             <path
                                 d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z" />
                         </svg></span>
@@ -99,7 +103,7 @@
                         </svg></span>
                     <span class="text">Quotation</span>
                 </li>
-                <li onclick="openPage('setting')">
+                <!-- <li onclick="openPage('setting')">
                     <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings">
@@ -109,7 +113,7 @@
                             <circle cx="12" cy="12" r="3"></circle>
                         </svg></span>
                     <span class="text">Setting</span>
-                </li>
+                </li> -->
             </ul>
 
             <div class="sidebar-footer">
@@ -301,7 +305,7 @@
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
-                            </thead>
+                        </thead>
                         <tbody></tbody>
                     </table>
                     <div class="pagination" id="productPagination"></div>
@@ -310,61 +314,72 @@
 
             <div id="cms" class="page">
                 <div class="page-header">
-                    <h2>Manage CMS</h2>
+                    <div>
+                        <h2>Manage CMS</h2>
+                        <p>Dashboard › Manage CMS</p>
+                    </div>
+                    <button class="btn-primary" onclick="openCMSModal()">Add New</button>
                 </div>
 
-                <div class="section" style="text-align:center; padding:60px 20px;">
-                    <h1 style="font-size:36px; margin-bottom:10px;">🚧 Coming Soon</h1>
-                    <p style="font-size:16px; color:#6b7280;">
-                        CMS management features are under development.<br>
-                        This section will be available soon.
-                    </p>
+                <div class="table-card">
+                    <table class="data-table" id="cmsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Page Title</th>
+                                <th>Page Slug</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
-            
+
             <div id="sample" class="page">
                 <div class="page-header">
-               <h2>Manage Sample</h2>
+                    <h2>Manage Sample</h2>
                 </div>
                 <div class="table-card">
-                <table id="sampleTable" class="data-table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Sample</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <div class="pagination" id="samplePagination"></div>
+                    <table id="sampleTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Sample</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="pagination" id="samplePagination"></div>
                 </div>
 
             </div>
+
             <div id="quotation" class="page">
                 <div class="page-header">
                     <h2>Manage Quotations</h2>
                 </div>
                 <div class="table-card">
-                <table id="quotationTable" class="data-table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Message</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <div class="pagination" id="samplePagination"></div>
+                    <table id="quotationTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="pagination" id="samplePagination"></div>
                 </div>
-                
+
             </div>
-            
+
             <!-- <div id="setting" class="page">
                 <h2>Settings</h2>
             </div> -->
@@ -372,6 +387,10 @@
         </main>
     </div>
 
+
+    <!-- ============================================ -->
+    <!-- ================= Modal Popups ============= -->
+    <!-- ============================================ -->
 
     <div class="modal" id="categoryModal">
         <div class="modal-box">
@@ -440,6 +459,48 @@
     </div>
 
 
+    <div class="modal" id="cmsModal">
+        <div class="modal-box large">
+            <div class="modal-header">
+                <h3>Add New CMS Page</h3>
+                <button onclick="closeCMSModal()">✕</button>
+            </div>
+
+            <form id="cmsForm">
+                <input type="hidden" id="cmsEditIndex">
+
+                <label>Page Title *</label>
+                <input type="text" id="cmsTitle" required>
+
+                <label>Page Slug *</label>
+                <input type="text" id="cmsSlug" required>
+
+                <label>Page Content *</label>
+
+                <textarea id="cmsContent"></textarea>
+
+
+                <div class="modal-actions">
+                    <button class="btn-primary" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="modal" id="cmsViewModal">
+    <div class="modal-box large">
+        <div class="modal-header">
+        <h3 id="viewTitle"></h3>
+        <button onclick="closeCMSView()">✕</button>
+        </div>
+        <div id="viewContent" class="cms-view-content"></div>
+    </div>
+    </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jodit@3.24.9/build/jodit.min.js"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

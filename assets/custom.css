@@ -557,10 +557,17 @@ body {
   width: 100%;
   padding: 10px;
   margin: 8px 0 16px;
+  border-radius: 6px;
+}
+
+.modal-box input:focus-visible, .modal-box select, .modal-box textarea:focus-visible {
+  outline-color:#f04d0c;
+  border-radius: 6px;
 }
 
 .modal-actions {
   text-align: right;
+  margin-top: 10px;
 }
 
 .modal label{
@@ -639,6 +646,12 @@ body {
 }
 
 
+.jodit-container:not(.jodit_inline) .jodit-wysiwyg {
+    overflow-y: auto;
+}
+.jodit-container {
+    height: 400px !important;
+}
 
 
 /* RESPONSIVE */
